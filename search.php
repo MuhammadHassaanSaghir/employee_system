@@ -11,7 +11,7 @@
             // Short Way to Bind Value
             $run->execute(array("value"=>"%".$value."%"));
             $searched_data = $run->fetchAll(PDO::FETCH_ASSOC);
-            $searched_data += array("Status Code"=>"200");
+            // $searched_data['Status Code'] = 200;
             return $searched_data;
         }
     }
