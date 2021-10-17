@@ -12,7 +12,7 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog emp object
+  // Instantiate emp object
   $emp = new Employee($db);
 
   // Get raw Employeeed data
@@ -21,11 +21,9 @@
   $emp->full_name = $data->full_name;
   $emp->designation = $data->designation;
   $emp->email = $data->email;
-
   // Create Employee
   if($emp->Add_Employee()) {
-    echo json_encode('Employee Created Sucessfully');
+    echo json_encode(array('full_name' => $data->full_name , 'designation' => $data->designation , 'email' => $data->email , 'message' => 'Employee Created Sucessfully','Status Code ' => '200'));
   } else {
-    echo json_encode('Failed to Create Employee');
+    echo json_encode(array('message' => 'Failed to Create Employee','Status Code' => '400'));
   }
-
